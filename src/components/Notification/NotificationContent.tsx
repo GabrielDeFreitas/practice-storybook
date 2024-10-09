@@ -1,14 +1,21 @@
 interface NotificationContentProps {
-    text: string
-    className?: string
+    text?: string
+    description?: string
 }
 
-export function NotificationContent({text}: NotificationContentProps) {
+export function NotificationContent({ text, description }: NotificationContentProps) {
     return (
-        <div className="flex-1 flex flex-col">
-            <p className='text-sm leading-relaxed text-zinc-500'>
-                {text}
-            </p>
+        <div className='flex-1 flex flex-col'>
+            {text && (
+                <h1 className='text-md leading-relaxed text-zinc-700'>
+                    {text}
+                </h1>
+            )}
+            {description && (
+                <p className='text-sm leading-relaxed text-zinc-500'>
+                    {description}
+                </p>
+            )}
         </div>
-    )
+    );
 }
